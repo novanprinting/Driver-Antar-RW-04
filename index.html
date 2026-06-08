@@ -11,7 +11,11 @@
     
     <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('Service Worker terdaftar sukses:', reg.scope))
+            .catch(err => console.error('Pendaftaran Service Worker gagal:', err));
+        });
       }
     </script>
     
@@ -26,21 +30,18 @@
 </head>
 <body class="bg-slate-100 flex justify-center items-start min-h-screen">
 
-    <!-- CONTAINER BINGKAI HP -->
     <div class="w-full max-w-md bg-white min-h-screen shadow-2xl relative flex flex-col justify-between pb-4">
-       
+        
         <div class="flex flex-col h-full justify-between flex-1">
             <div>
-                <!-- BANNER INSTALASI -->
                 <div id="install-banner" class="hidden bg-blue-50 border-b-2 border-blue-600 p-3 text-center text-sm font-semibold text-blue-900 flex justify-between items-center px-4">
                     <span><i class="fa-solid fa-mobile-screen-button text-blue-600 mr-2"></i> Instal aplikasi di HP Anda!</span>
                     <button id="btn-install" class="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-lg font-bold shadow hover:bg-blue-700 transition">INSTAL</button>
                 </div>
                 
-                <!-- ================= SCREEN LOGIN ================= -->
                 <div id="login-screen" class="p-6 pt-16 flex flex-col justify-center text-center">
                     <div class="mb-4">
-                         <img src="diantaryuk.png" alt="Logo Diantar Yuk" class="w-24 h-24 object-contain mx-auto drop-shadow-md">
+                         <img src="diantaryuk.png" alt="Logo Diantar Yuk" class="w-24 h-24 object-contain mx-auto drop-shadow-md" onerror="this.src='https://via.placeholder.com/192'">
                     </div>
                     <h2 class="text-2xl font-bold text-blue-900 tracking-wide">DIANTAR YUK</h2>
                     <p class="text-sm text-gray-500 mt-1 mb-8">Silakan login untuk memesan driver lokal.</p>
@@ -73,7 +74,6 @@
                     </div>
                 </div>
 
-                <!-- ================= SCREEN UTAMA ================= -->
                 <div id="main-screen" class="hidden">
                     <div class="bg-gradient-to-r from-blue-900 to-blue-800 text-white p-5 rounded-b-[24px] shadow-lg flex justify-between items-center">
                         <div>
@@ -96,7 +96,6 @@
                     </div>
 
                     <div class="px-4 space-y-4">
-                        <!-- Driver 1 -->
                         <div class="bg-white border border-gray-100 rounded-2xl p-4 flex items-center shadow-sm hover:shadow-md transition">
                             <img class="w-16 h-16 rounded-full object-cover mr-4 border-2 border-gray-100 bg-gray-100" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Foto Pak Budi">
                             <div class="flex-1">
@@ -104,14 +103,13 @@
                                 <div class="text-xs text-gray-500 mb-2"><i class="fa-solid fa-house text-gray-400 mr-1"></i> RT 02 / RW 04, Miroto</div>
                                 <div class="flex justify-between items-center mt-1">
                                     <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2 py-1 rounded-md">Min. Ongkos: Rp 3.000</span>
-                                    <a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20Pak%20Budi,%20saya%20ingin%20pesan%20driver%20lokal%20DIANTAR%20YUK.%20Estimasi%20ongkos%20dasar%20Miroto:%20Rp%203.000" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-md shadow-emerald-500/20 flex items-center transition">
+                                    <a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20Pak%20Budi,%20saya%20ingin%20pesan%20driver%20lokal%20DIANTAR%20YUK.%20Estimasi%20ongkos%20:%20Rp%203.000" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-md shadow-emerald-500/20 flex items-center transition">
                                         <i class="fa-brands fa-whatsapp text-sm mr-1"></i> PESAN
                                     </a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Driver 2 -->
                         <div class="bg-white border border-gray-100 rounded-2xl p-4 flex items-center shadow-sm hover:shadow-md transition">
                             <img class="w-16 h-16 rounded-full object-cover mr-4 border-2 border-gray-100 bg-gray-100" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Foto Mas Agus">
                             <div class="flex-1">
@@ -119,7 +117,7 @@
                                 <div class="text-xs text-gray-500 mb-2"><i class="fa-solid fa-house text-gray-400 mr-1"></i> RT 05 / RW 04, Miroto</div>
                                 <div class="flex justify-between items-center mt-1">
                                     <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2 py-1 rounded-md">Min. Ongkos: Rp 3.000</span>
-                                    <a href="https://api.whatsapp.com/send?phone=628987654321&text=Halo%20Mas%20Agus,%20saya%20ingin%20pesan%20driver%20lokal%20DIANTAR%20YUK.%20Estimasi%20ongkos%20dasar%20Miroto:%20Rp%203.000" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-md shadow-emerald-500/20 flex items-center transition">
+                                    <a href="https://api.whatsapp.com/send?phone=628987654321&text=Halo%20Mas%20Agus,%20saya%20ingin%20pesan%20driver%20lokal%20DIANTAR%20YUK.%20Estimasi%20ongkos%20:%20Rp%203.000" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-md shadow-emerald-500/20 flex items-center transition">
                                         <i class="fa-brands fa-whatsapp text-sm mr-1"></i> PESAN
                                     </a>
                                 </div>
@@ -129,7 +127,6 @@
                 </div>
             </div>
 
-            <!-- FOOTER YANG SUDAH DIPERBAIKI POSISINYA -->
             <footer id="app-footer" class="mt-12 pb-4 text-center border-t border-gray-100 pt-4 mx-4">
                 <p class="text-gray-400 text-xs tracking-wide">Hubungi Bantuan:</p>
                 <p class="text-gray-500 text-xs font-semibold mt-0.5"><i class="fa-solid fa-user-gear mr-1 text-blue-500"></i> Novan (081226239220)</p>
@@ -138,14 +135,13 @@
         
     </div>
 
-    <!-- ================= LOGIKA JAVASCRIPT ================= -->
     <script>
         function prosesLogin() {
             const user = document.getElementById('username').value;
             const pass = document.getElementById('password').value;
             const errorMsg = document.getElementById('login-error');
 
-            if (user === 'admin' && pass === '1234') {
+            if (user === 'miroto' && pass === '0404') {
                 document.getElementById('login-screen').classList.add('hidden');
                 document.getElementById('main-screen').classList.remove('hidden');
                 errorMsg.classList.add('hidden');
