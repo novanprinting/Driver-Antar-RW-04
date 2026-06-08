@@ -1,6 +1,6 @@
 const CACHE_NAME = 'diantaryuk-cache-v1';
 const assets = [
-  'diantaryuk.html',
+  'index.html',
   'manifest.json',
   'diantaryuk.png'
 ];
