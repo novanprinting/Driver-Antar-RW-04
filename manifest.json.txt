@@ -1,0 +1,21 @@
+{
+  "short_name": "DiantarYuk",
+  "name": "DIANTAR YUK - Driver RW 04",
+  "icons": [
+    {
+      "src": "diantaryuk.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "diantaryuk.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "diantaryuk.html",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "display": "standalone",
+  "orientation": "portrait"
+}
