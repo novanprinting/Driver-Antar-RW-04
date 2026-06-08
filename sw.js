@@ -1,8 +1,9 @@
 const CACHE_NAME = 'diantaryuk-cache-v1';
 const assets = [
-  'index.html',
-  'manifest.json',
-  'diantaryuk.png'
+  './',
+  './index.html',
+  './manifest.json',
+  './diantaryuk.png'
 ];
 
 self.addEventListener('install', e => {
